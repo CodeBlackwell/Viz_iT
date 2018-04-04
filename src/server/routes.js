@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // SCRIPT_URL_APP = '/public/app.min.js';
 
-router.get('/react', async (ctx, next) => {
+router.get('/client', async (ctx, next) => {
 	await ctx.render('index', {
 		version: stats.appVersion,
 		commit: stats.appCommit,

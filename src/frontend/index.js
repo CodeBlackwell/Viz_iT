@@ -1,20 +1,55 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-class App extends React.Component {
-	render() {
-		return (
-			<div className="shopping-list">
-				<h1>Shopping List for {this.props.name}</h1>
-				<ul>
-					<li>Instagram</li>
-					<li>WhatsApp</li>
-					<li>Oculus</li>
-				</ul>
-			</div>
-		);
-	}
-}
+import React from 'react'
+import { render } from 'react-dom'
 
-render(<App />,
-	document.getElementById('root')
+// First we import some modules...
+import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
+
+// Then we delete a bunch of code from App and
+// add some <Link> elements...
+const App = React.createClass({
+    render() {
+        return (
+            <div>
+                <ul>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/inbox">Inbox</Link></li>
+                </ul>
+                {this.props.children}
+            </div>
+        )
+    }
+});
+const Inbox = React.createClass({
+    render() {
+        return (
+            <div>
+                <h1>Inbox</h1>
+                {this.props.children}
+            </div>
+        )
+    }
+});
+const About = React.createClass({
+    render() {
+        return (
+            <div>
+                <h1>About</h1>
+                {this.props.children}
+            </div>
+        )
+    }
+});
+
+// Finally, we render a <Router> with some <Route>s.
+// It does all the fancy routing stuff for us.
+render((
+        <Router history={hashHistory}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Inbox} />
+                <Route path="about" component={About} />
+                <Route path="inbox" component={Inbox} />
+            </Route>
+        </Router>
+    ),
+    document.getElementById('root')
 );
