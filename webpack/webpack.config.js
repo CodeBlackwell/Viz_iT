@@ -36,7 +36,7 @@ export default (options) => {
 
 	const config = {
 		entry: {
-			app: './src/frontend/app.js'
+			app: './src/frontend/index.js'
 		},
 
 		output: {

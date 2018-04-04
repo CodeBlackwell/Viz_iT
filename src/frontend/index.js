@@ -1,7 +1,6 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-
-class ShoppingList extends React.Component {
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+class App extends React.Component {
 	render() {
 		return (
 			<div className="shopping-list">
@@ -16,6 +15,6 @@ class ShoppingList extends React.Component {
 	}
 }
 
-ReactDOM.render(<ShoppingList />,
+render(<App />,
 	document.getElementById('root')
 );

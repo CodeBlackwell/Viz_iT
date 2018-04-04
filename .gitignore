@@ -3,3 +3,4 @@ node_modules/
 trash/
 build/*
 yarn-error.log
+.idea/*
