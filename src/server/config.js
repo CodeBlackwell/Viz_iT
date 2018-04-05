@@ -21,7 +21,9 @@ module.exports = {
 	},
 	secret: process.env.SECRET,
 	Twitter: {
-		consumerKey: process.env.TWITTER_VIZIT_CONSUMER_KEY,
-		consumerSecret: process.env.TWITTER_VIZIT_CONSUMER_SECRET
-	},
+		consumer_key: process.env.TWITTER_VIZIT_CONSUMER_KEY,
+		consumer_secret: process.env.TWITTER_VIZIT_CONSUMER_SECRET,
+		access_token_key: process.env.TWITTER_VIZIT_ACCESS_TOKEN,
+		access_token_secret: process.env.TWITTER_VIZIT_ACCESS_SECRET
+	}
 };
