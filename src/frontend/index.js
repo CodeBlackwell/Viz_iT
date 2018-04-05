@@ -1,32 +1,26 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import ReduxPromise from 'redux-promise';
 
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
-
-import App from './src/containers/App/App';
-import Home from './src/containers/Home/Home';
-
+import Root from './root'
+import rootReducer from './src/reducers';
 
 import './src/theme/globalStyle.js';
 
-const About = React.createClass({
-    render() {
-        return (
-            <div>
-                <h1>About</h1>
-            </div>
-        )
-    }
-});
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(ReduxPromise)
+));
+
+// const history = syncHistoryWithStore(browserHistory, store);
 
 render((
-        <Router history={hashHistory}>
-            <Route path="/" component={App}>
-                <IndexRoute component={Home} />
-                <Route path="home" component={Home} />
-                <Route path="about" component={About} />
-            </Route>
-        </Router>
+        <Root store={ store } history={ hashHistory }/>
     ),
     document.getElementById('root')
 );
