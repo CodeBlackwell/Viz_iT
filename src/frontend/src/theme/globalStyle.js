@@ -7,6 +7,8 @@ injectGlobal`
     body {
         font-family: 'VT323', monospace;
         font-size: 24px;
+        display: flex;
+        justify-content: center;
     }
     
     h1, h2, h3 {
