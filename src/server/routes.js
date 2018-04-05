@@ -1,5 +1,7 @@
 const router = require('koa-router')();
 const stats = require('../../build/stats.json');
+const Twitter = require('twitter-node-client').Twitter;
+const config = require('./config');
 
 const publicPath = stats.publicPath;
 
@@ -11,6 +13,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // SCRIPT_URL_APP = '/public/app.min.js';
+// initiate twitter
+const twitter = new Twitter(config.Twitter);
+
 
 router.get('/client', async (ctx, next) => {
 	await ctx.render('index', {
@@ -20,7 +25,26 @@ router.get('/client', async (ctx, next) => {
 		SCRIPT_URL: SCRIPT_URL_APP
 	});
 });
+
+
+
+twitter.getUserTimeline({ screen_name: 'codeblackwell', count: '10'}, error, success);
 router.get('/bar', (ctx) => {
-	ctx.body = 'this is a users/bar response';
+
+    // ctx.body = 'hi';
 });
+
+// Twitter
+
+
+
+
+
+function error (err, res, body) {
+    console.log('ERROR [%s]', err);
+}
+function success(data) {
+    console.log('Data [%s]', data);
+}
+
 module.exports = router;
