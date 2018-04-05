@@ -17,10 +17,10 @@ const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(ReduxPromise)
 ));
 
-// const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 render((
-        <Root store={ store } history={ hashHistory }/>
+        <Root store={ store } history={ history }/>
     ),
     document.getElementById('root')
 );
