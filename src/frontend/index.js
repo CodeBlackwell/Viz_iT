@@ -14,7 +14,6 @@ const About = React.createClass({
         return (
             <div>
                 <h1>About</h1>
-                {this.props.children}
             </div>
         )
     }
