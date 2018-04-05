@@ -4,6 +4,8 @@ import { render } from 'react-dom'
 // First we import some modules...
 import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
 
+import './src/theme/globalStyle.js';
+
 // Then we delete a bunch of code from App and
 // add some <Link> elements...
 const App = React.createClass({
