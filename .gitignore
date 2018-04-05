@@ -4,3 +4,4 @@ trash/
 build/*
 yarn-error.log
 .idea/*
+.env
