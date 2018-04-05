@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === 'production') {
     SCRIPT_URL_APP += '?' + stats.hash;
 }
 
-// SCRIPT_URL_APP = '/public/app.min.js';
 // initiate twitter
 const client = new Twitter(config.Twitter);
 
@@ -28,7 +27,7 @@ router.get('/client', async (ctx, next) => {
 
 
 router.get(
-    '/tweets/:screen_name',
+    '/tweets/:screen_name/:count',
     (ctx, next) => {
         return client.get('statuses/user_timeline', ctx.params)
             .then(tweets => {
