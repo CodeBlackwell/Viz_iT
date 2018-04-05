@@ -1,36 +1,29 @@
-import { FETCH_PROFILE } from '../constants/homepage_constants'
+import { FETCH_TIMELINE } from '../constants/TwitterConstants';
 
 const initialState = {
-    greeting: 'Hello Everyone! Good to meet you!',
-    profile: {
-        name: null,
-        number: null,
-        hometown: null,
-        favoriteFancyQuote: null,
-        strongestTechnicalAttributes: null
-    }
+    screenName: 'codeblackwell',
+    tweets: []
 };
 
 const actionHandlers = {
-    [FETCH_PROFILE] (state, action) {
+    [FETCH_TIMELINE] (state, action) {
         const {
             payload: {
-                data: profile
+                data: tweets
             }
         }  = action;
 
         return Object.assign({}, state, {
-            profile
+            tweets
         });
     }
 };
 
 
-// Setting up the reducer this way is an optimization for constant time lookup on action handlers
-const homepageReducer = function (state = initialState, action) {
+const twitterReducer = function (state = initialState, action) {
     if (actionHandlers[action.type] != null) {
         return actionHandlers[action.type] (state, action)
     }
     return state
 };
-export default homepageReducer
+export default twitterReducer
