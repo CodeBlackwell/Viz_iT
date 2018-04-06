@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import media from '../../theme/media';
+import {tomato} from '../../theme/variables';
 
 //@formatter-off
 export const Image = styled.img`
@@ -41,6 +42,7 @@ export const HeroImage = styled.div`
 `;
 
 export const RevealP = styled.p`
+    color: ${tomato};
     position: relative;
     width: 70vw;
     &:after {

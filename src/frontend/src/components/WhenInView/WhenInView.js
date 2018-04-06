@@ -20,11 +20,14 @@ class WhenInView extends Component {
             })
         }
     }
-    render () {
+
+    componentDidMount() {
         //@TODO: Fix so that it actually uses onEnter function;
         setTimeout(() => {
             this.setState({isInView: true});
         }, 3000);
+    }
+    render () {
         return (
             <div>
                 <Waypoint onEnter={this.onEnter}>

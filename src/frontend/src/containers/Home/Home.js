@@ -87,26 +87,7 @@ export default class Home extends Component {
                                 </RevealP>
                             }
                         </WhenInView>
-                        <WhenInView>
-                            { ({isInView}) =>
-                                <RevealP hide={!isInView}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum nulla
-                                    est,
-                                    et mattis leo pellentesque malesuada. Vivamus sodales accumsan orci, nec malesuada
-                                    nisi
-                                    molestie quis. Donec turpis lectus, congue sit amet sem tempus, varius auctor ex.
-                                    Sed
-                                    est
-                                    nulla, consectetur sit amet dignissim ac, vulputate at leo. Sed dignissim eleifend
-                                    risus
-                                    a
-                                    pellentesque. Cras imperdiet tortor non nisi placerat lobortis. Sed non orci
-                                    tincidunt
-                                    ante mollis ultricies sit amet sed tortor. Vivamus at enim tellus. Aliquam erat
-                                    volutpat.
-                                </RevealP>
-                            }
-                        </WhenInView>
+                        
                     </Container>
                 </ScrollSection>
             </ScrollContainer>
