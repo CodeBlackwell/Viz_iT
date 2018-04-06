@@ -18,7 +18,6 @@ export default class Home extends Component {
             <ScrollContainer>
                 <ScrollSection pageId={0}>
                     <ScrollFlex justify="space-around">
-                        {/*<Image src={require('../../assets/Me.jpg')} alt="Me"/>*/}
                         <HeroImage>
                             <h1>LeChristopher Blackwell</h1>
                             <h2>Fullstack Software Engineer</h2>
@@ -87,7 +86,7 @@ export default class Home extends Component {
                                 </RevealP>
                             }
                         </WhenInView>
-                        
+
                     </Container>
                 </ScrollSection>
             </ScrollContainer>

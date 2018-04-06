@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { KEY as TWITTER_KEY } from '../../constants/TwitterConstants';
 import { ScrollContainer, ScrollSection } from 'react-onepage-scroll';
 
-import fetchTimeline from '../../actions/TwitterActions';
+import { fetchTimeline } from '../../actions/TwitterActions';
 
 import { Container } from '../../theme/grid';
 
@@ -11,11 +11,11 @@ import { Container } from '../../theme/grid';
 class Twitter extends Component {
 
     componentDidMount() {
-        this.props.dispatch(fetchTimeline)
+        this.props.dispatch(fetchTimeline());
     }
     render () {
+        fetchTimeline();
         const { tweets } = this.props;
-        console.log(tweets)
         return (
             <Container>
                 <ScrollContainer>
