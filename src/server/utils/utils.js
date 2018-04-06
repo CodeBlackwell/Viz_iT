@@ -14,7 +14,7 @@ module.exports = {
 
     // returns { react: 10, redux: 5, someOtherHashTag: 15.....}
 
-    mostCommonHashTag(tweets) {
+    mostCommonHashTag(tweets, top = 10) {
         const HashTagCount = tweets.map(tweet => {
             return tweet.entities.hashtags
         })
@@ -32,7 +32,14 @@ module.exports = {
                 });
                 return prev
             }, {});
-
-        return HashTagCount;
+        let count = [];
+        for(let key in HashTagCount) {
+            count.push({tag: key, frequency: HashTagCount[key]})
+        }
+        
+        const length = count.length < top ? count.length : top;
+        return count.sort((a, b) => {
+            return b.frequency - a.frequency;
+        }).slice(0, length);
     }
 };
