@@ -2,12 +2,12 @@ import React, {Component} from 'react'
 
 import {scaleLinear} from 'd3-scale';
 import {max} from 'd3-array'
-import {select} from 'd3-selection'
+import {select, selectAll } from 'd3-selection'
 
 
 class BarChart extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.createBarChart = this.createBarChart.bind(this)
     }
 
@@ -20,26 +20,23 @@ class BarChart extends Component {
     }
 
     createBarChart() {
-        const node = this.node;
+        const node = this.node,
+            width = 300,
+            height = 100,
+            padding = 2,
+            dataSet = [5, 10, 15, 20, 25, 30];
 
         select(node)
+            .selectAll("rect")
+            .data(dataSet)
+            .enter()
             .append("rect")
-                .attr("width", 50)
-                .attr("height", 200)
-                .style("fill", "blue");
-
-        select(node)
-            .append("circle")
-                .attr("cx", 250)
-                .attr("cy", 200)
-                .attr("r", 50)
-                .style("fill", "purple");
-
-        select(node)
-            .append("text")
-                .attr("x", 200)
-                .attr("y", 100)
+                .attr("x", (d, i) => i * (width / dataSet.length ))
+                .attr("y", (d) => height - d)
+                .attr("width", width / dataSet.length - padding)
+                .attr("height", (d) => d)
                 .style("fill", "red");
+
 
     }
 
