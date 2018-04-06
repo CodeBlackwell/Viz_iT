@@ -21,6 +21,7 @@ class BarChart extends Component {
 
     createBarChart() {
         const node = this.node,
+            svg = select(node),
             width = 300,
             height = 100,
             padding = 2,
@@ -36,6 +37,17 @@ class BarChart extends Component {
                 .attr("width", width / dataSet.length - padding)
                 .attr("height", (d) => d)
                 .style("fill", "red");
+
+        const labels = svg.selectAll("text")
+            .data(dataSet)
+            .enter()
+            .append("text")
+            .text(d => d)
+            .attr('x', (d, i) => i * (width / dataSet.length ) - 30)
+            .attr('y', d => height - d)
+            .attr('font-size', '12px')
+            .attr('font-family', 'sans-serif')
+            .attr('fill', '#666666')
 
 
     }
