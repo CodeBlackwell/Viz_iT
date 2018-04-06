@@ -42,6 +42,7 @@ export const HeroImage = styled.div`
 
 export const RevealP = styled.p`
     position: relative;
+    width: 70vw;
     &:after {
         content: '  ';
         position: absolute;

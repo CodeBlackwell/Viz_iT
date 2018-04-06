@@ -29,11 +29,13 @@ router.get('/client', async (ctx, next) => {
 router.get(
     '/tweets/:screen_name/:count',
     (ctx, next) => {
+        console.log(config.Twitter);
         return client.get('statuses/user_timeline', ctx.params)
             .then(tweets => {
                 ctx.body = tweets;
                 next();
-            });
+            })
+            .catch(err => console.log(err));
     }
 );
 
