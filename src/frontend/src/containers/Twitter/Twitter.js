@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { KEY as TWITTER_KEY } from '../../constants/TwitterConstants';
 import { ScrollContainer, ScrollSection } from 'react-onepage-scroll';
 
-import { fetchTimeline } from '../../actions/TwitterActions';
+import { fetchHashtagCount } from '../../actions/TwitterActions';
 
 import { Container } from '../../theme/grid';
 
@@ -11,10 +11,10 @@ import { Container } from '../../theme/grid';
 class Twitter extends Component {
 
     componentDidMount() {
-        this.props.dispatch(fetchTimeline());
+        this.props.dispatch(fetchHashtagCount());
     }
     render () {
-        fetchTimeline();
+        fetchHashtagCount();
         const { tweets } = this.props;
         return (
             <Container>
@@ -35,11 +35,11 @@ class Twitter extends Component {
 
 const mapStateToProps = function (state) {
     const {
-        [TWITTER_KEY]: { tweets }
+        [TWITTER_KEY]: { hashtagCount }
     } = state;
 
     return {
-        tweets
+        hashtagCount
     };
 };
 

@@ -29,11 +29,12 @@ router.get('/client', async (ctx, next) => {
 
 
 router.get(
-    '/tweets/:screen_name/:count',
+    '/tweets/hashtags/:screen_name/:count/:top',
     (ctx, next) => {
         return client.get('statuses/user_timeline', ctx.params)
             .then(tweets => {
-                ctx.body = mostCommonHashTag(tweets);
+                const top = ctx.params.top;
+                ctx.body = mostCommonHashTag(tweets, top);
                 next();
             })
             .catch(err => console.log('Error: ', err));

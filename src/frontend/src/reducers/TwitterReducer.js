@@ -1,20 +1,20 @@
-import { FETCH_TIMELINE } from '../constants/TwitterConstants';
+import { FETCH_HASHTAG_COUNT } from '../constants/TwitterConstants';
 
 const initialState = {
     screenName: 'codeblackwell',
-    tweets: []
+    hashtagCount: []
 };
 
 const actionHandlers = {
-    [FETCH_TIMELINE] (state, action) {
+    [FETCH_HASHTAG_COUNT] (state, action) {
         const {
             payload: {
-                data: tweets
+                data: hashtagCount
             }
         }  = action;
 
         return Object.assign({}, state, {
-            tweets
+            hashtagCount
         });
     }
 };

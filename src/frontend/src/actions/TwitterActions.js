@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { FETCH_TIMELINE } from '../constants/TwitterConstants';
+import { FETCH_HASHTAG_COUNT } from '../constants/TwitterConstants';
 
 
-export function fetchTimeline (screenName = 'codeblackwell', count = 100) {
+export function fetchHashtagCount (screenName = 'codeblackwell', count = 100, top = 10) {
     return (dispatch) => {
-        return axios.get(`/tweets/${screenName}/${count}`)
+        return axios.get(`/tweets/hashtags/${screenName}/${count}/${top}`)
             .then(
                 response => {
-                    dispatch({ type: FETCH_TIMELINE, payload: response.data})},
+                    dispatch({ type: FETCH_HASHTAG_COUNT, payload: response.data})},
                 error => dispatch({type: 'ERROR', payload: error })
             )
     }
