@@ -6,7 +6,7 @@ import { ScrollContainer, ScrollSection } from 'react-onepage-scroll';
 import { fetchHashtagCount } from '../../actions/TwitterActions';
 
 import { Container } from '../../theme/grid';
-
+import BarChart from '../../components/BarChart/BarChart';
 
 class Twitter extends Component {
 
@@ -14,16 +14,19 @@ class Twitter extends Component {
         this.props.dispatch(fetchHashtagCount());
     }
     render () {
-        fetchHashtagCount();
-        const { tweets } = this.props;
+        const { hashtagCount } = this.props;
+
+
+
         return (
             <Container>
                 <ScrollContainer>
                     <ScrollSection pageId={0} >
-                        <h3>Section 1</h3>
+                        <BarChart data={[5,10,1,3]} size={[500,500]} />
                     </ScrollSection>
                     <ScrollSection pageId={1} >
                         <h3>Section 2</h3>
+
                     </ScrollSection>
                 </ScrollContainer>
             </Container>

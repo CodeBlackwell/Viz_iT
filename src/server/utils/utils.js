@@ -34,9 +34,9 @@ module.exports = {
             }, {});
         let count = [];
         for(let key in HashTagCount) {
-            count.push({tag: key, frequency: HashTagCount[key]})
+            count.push({hashtag: key, frequency: HashTagCount[key]})
         }
-        
+
         const length = count.length < top ? count.length : top;
         return count.sort((a, b) => {
             return b.frequency - a.frequency;
