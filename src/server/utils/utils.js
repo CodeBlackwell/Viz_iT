@@ -11,8 +11,11 @@ module.exports = {
     //     }, {});
     // }
 
+
+    // returns { react: 10, redux: 5, someOtherHashTag: 15.....}
+
     mostCommonHashTag(tweets) {
-        return tweets.map(tweet => {
+        const HashTagCount = tweets.map(tweet => {
             return tweet.entities.hashtags
         })
             .reduce((prev, next) => {
@@ -28,6 +31,8 @@ module.exports = {
                     }
                 });
                 return prev
-            }, {})
+            }, {});
+
+        return HashTagCount;
     }
 };

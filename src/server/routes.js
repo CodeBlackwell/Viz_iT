@@ -3,6 +3,8 @@ const stats = require('../../build/stats.json');
 const config = require('./config');
 const Twitter = require('twitter');
 
+const mostCommonHashTag = require('./utils/utils').mostCommonHashTag;
+
 const publicPath = stats.publicPath;
 
 let STYLE_URL;
@@ -29,13 +31,12 @@ router.get('/client', async (ctx, next) => {
 router.get(
     '/tweets/:screen_name/:count',
     (ctx, next) => {
-        console.log(config.Twitter);
         return client.get('statuses/user_timeline', ctx.params)
             .then(tweets => {
-                ctx.body = tweets;
+                ctx.body = mostCommonHashTag(tweets);
                 next();
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log('Error: ', err));
     }
 );
 

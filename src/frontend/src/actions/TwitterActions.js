@@ -7,8 +7,7 @@ export function fetchTimeline (screenName = 'codeblackwell', count = 100) {
         return axios.get(`/tweets/${screenName}/${count}`)
             .then(
                 response => {
-                    console.log(response);
-                    dispatch({ type: FETCH_TIMELINE, payload: response})},
+                    dispatch({ type: FETCH_TIMELINE, payload: response.data})},
                 error => dispatch({type: 'ERROR', payload: error })
             )
     }
