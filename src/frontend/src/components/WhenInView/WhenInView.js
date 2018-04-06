@@ -21,6 +21,7 @@ class WhenInView extends Component {
         }
     }
     render () {
+        //@TODO: Fix so that it actually uses onEnter function;
         setTimeout(() => {
             this.setState({isInView: true});
         }, 3000);
