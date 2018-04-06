@@ -7,7 +7,7 @@ export function fetchHashtagCount (screenName = 'codeblackwell', count = 100, to
         return axios.get(`/tweets/hashtags/${screenName}/${count}/${top}`)
             .then(
                 response => {
-                    dispatch({ type: FETCH_HASHTAG_COUNT, payload: response.data})},
+                    dispatch({ type: FETCH_HASHTAG_COUNT, payload: response})},
                 error => dispatch({type: 'ERROR', payload: error })
             )
     }
