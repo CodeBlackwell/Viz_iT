@@ -6,7 +6,10 @@ import { ScrollContainer, ScrollSection } from 'react-onepage-scroll';
 import { fetchHashtagCount } from '../../actions/TwitterActions';
 
 import { Container } from '../../theme/grid';
+import ScatterPlot from '../../components/Scatterplot/Scatterplot';
 import BarChart from '../../components/BarChart/BarChart';
+import Map from '../../components/GeoMap/GeoMap';
+
 
 class Twitter extends Component {
 
@@ -22,11 +25,11 @@ class Twitter extends Component {
             <Container>
                 <ScrollContainer>
                     <ScrollSection pageId={0} >
-                        <BarChart data={[5,10,1,3]} size={[500,500]} />
+                        <Map/>
                     </ScrollSection>
                     <ScrollSection pageId={1} >
                         <h3>Section 2</h3>
-
+                        <BarChart/>
                     </ScrollSection>
                 </ScrollContainer>
             </Container>

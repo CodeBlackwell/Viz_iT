@@ -43,7 +43,7 @@ class BarChart extends Component {
             .enter()
             .append("text")
             .text(d => d)
-            .attr('x', (d, i) => i * (width / dataSet.length ) - 30)
+            .attr('x', (d, i) => i * (width / dataSet.length ) - 10)
             .attr('y', d => height - d)
             .attr('font-size', '12px')
             .attr('font-family', 'sans-serif')
@@ -54,7 +54,7 @@ class BarChart extends Component {
 
     render() {
         return <svg ref={node => this.node = node}
-                    width={500} height={500}>
+                    width={500} height={700}>
         </svg>
     }
 }

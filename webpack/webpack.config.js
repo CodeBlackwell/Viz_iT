@@ -56,10 +56,10 @@ export default (options) => {
 		module: {
 			loaders: [
 				{test: /\.(js|jsx)/, loader: reactLoader, exclude: /node_modules/},
-				{test: /\.json/, loader: 'json'},
+				{test: /\.(json|geojson)/, loader: 'json'},
 				{test: /\.(woff|woff2)/, loader: 'url?limit=100000'},
 				{test: /\.(png|jpg|jpeg|gif|svg)/, loader: 'url?limit=100000'},
-				{test: /\.(ttf|eot)/, loader: 'file'}
+				{test: /\.(ttf|eot)/, loader: 'file'},
 			]
 		},
 

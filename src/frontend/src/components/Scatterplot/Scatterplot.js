@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 import {select, selectAll} from 'd3-selection'
 import { max, min } from 'd3-array';
+import { scaleLinear } from 'd3-scale'
 
 
 class LineGraph extends Component {
@@ -38,6 +39,7 @@ class LineGraph extends Component {
             }
         }
 
+
         const node = this.node,
             svg = select(node),
             width = 800,
@@ -54,14 +56,22 @@ class LineGraph extends Component {
                 {month: 9, sales: 70},
                 {month: 10, sales: 45}
             ];
+
+
         const dots = svg.selectAll("circle")
             .data(dataset)
             .enter()
             .append("circle")
             .attr("cx", d => d.month * 50)
             .attr("cy", d => height - d.sales)
-            .attr("r", 5)
+            .attr("r", 10)
             .attr("fill", d => KPI(d.sales))
+            .append("title")
+            .text(d => d)
+            .on("mouseover", function(d) {
+                console.log(this);
+            });
+
         const labels = svg.selectAll("text")
             .data(dataset)
             .enter()
